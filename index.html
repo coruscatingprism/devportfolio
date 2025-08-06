@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio SPA</title>
+    <title>Portfolio SPA with Case Studies</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -16,10 +16,11 @@
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
             --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
             --gray: #95a5a6;
+            --success: #2ecc71;
         }
 
         body {
@@ -135,6 +136,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            min-height: 80vh;
         }
 
         .page {
@@ -226,6 +228,14 @@
             color: white;
         }
 
+        .btn-accent {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #c0392b;
+        }
+
         /* Cards */
         .card-grid {
             display: grid;
@@ -260,107 +270,6 @@
 
         .card h3 i {
             margin-right: 0.8rem;
-        }
-
-        /* About Page */
-        .profile {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .profile-img {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .profile-img img {
-            width: 100%;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .profile-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .profile-info {
-            flex: 2;
-            min-width: 300px;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill-tag {
-            background: rgba(52, 152, 219, 0.15);
-            color: var(--secondary);
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-        }
-
-        /* Experience Page */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: var(--secondary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            padding: 1.5rem 2.5rem;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .timeline-content h4 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: block;
         }
 
         /* Projects Page */
@@ -427,6 +336,169 @@
             font-size: 0.8rem;
         }
 
+        /* Case Study Page */
+        .case-study {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .case-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .case-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .case-header p {
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .case-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .case-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .case-section {
+            margin-bottom: 3rem;
+        }
+
+        .case-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .case-section p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+
+        /* Gallery Styles */
+        .gallery {
+            margin: 2rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            background: #1a252f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item i {
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.8;
+        }
+
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 300;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: color 0.3s;
+        }
+
+        .gallery-nav:hover {
+            color: var(--secondary);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -475,20 +547,6 @@
             .hero p {
                 font-size: 1.1rem;
             }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
         }
 
         @media (max-width: 768px) {
@@ -512,8 +570,8 @@
                 font-size: 2.2rem;
             }
             
-            .profile {
-                flex-direction: column;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
@@ -542,6 +600,10 @@
             
             .page-header h1 {
                 font-size: 1.8rem;
+            }
+            
+            .case-header h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -620,39 +682,29 @@
                 <p>Get to know my background, skills, and what drives me as a developer</p>
             </div>
             
-            <div class="profile">
-                <div class="profile-img">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Profile Image">
-                </div>
-                <div class="profile-info">
-                    <h2>Hello, I'm Alex Johnson</h2>
-                    <p>I'm a full-stack developer with a focus on frontend technologies. With a background in computer science and design, I bridge the gap between technical functionality and aesthetic design.</p>
-                    <p>My journey in web development started in 2015 when I built my first website. Since then, I've worked with startups and established companies to create digital products that users love.</p>
-                    
-                    <h3 style="margin: 1.5rem 0 1rem; color: var(--secondary);">Skills & Expertise</h3>
-                    <div class="skills">
-                        <span class="skill-tag">HTML5/CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">React.js</span>
-                        <span class="skill-tag">Vue.js</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">UI/UX Design</span>
-                        <span class="skill-tag">Responsive Design</span>
-                        <span class="skill-tag">SPA Development</span>
+            <div class="case-study">
+                <div class="case-content">
+                    <div class="case-section">
+                        <h3>My Journey</h3>
+                        <p>I began my coding journey at the age of 15 when I created my first website. Since then, I've been passionate about turning ideas into digital reality. I graduated with a degree in Computer Science from Tech University, where I specialized in web technologies and user experience design.</p>
+                        <p>Over the past 5 years, I've worked with startups and established companies to create digital products that users love. My approach combines technical expertise with creative problem-solving to deliver solutions that meet both business goals and user needs.</p>
                     </div>
-                </div>
-            </div>
-            
-            <div class="card-grid">
-                <div class="card">
-                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                    <p><strong>BSc Computer Science</strong><br>Tech University, 2014-2018</p>
-                    <p><strong>Web Development Bootcamp</strong><br>Coding Academy, 2018</p>
-                </div>
-                <div class="card">
-                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
-                    <p><strong>Google UX Design Professional</strong><br>Google, 2021</p>
-                    <p><strong>Frontend Development Specialization</strong><br>Coursera, 2020</p>
+                    
+                    <div class="case-section">
+                        <h3>Skills & Expertise</h3>
+                        <div class="tags">
+                            <span class="tag">HTML5/CSS3</span>
+                            <span class="tag">JavaScript (ES6+)</span>
+                            <span class="tag">React.js</span>
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Responsive Design</span>
+                            <span class="tag">UI/UX Design</span>
+                            <span class="tag">SPA Development</span>
+                            <span class="tag">RESTful APIs</span>
+                            <span class="tag">Git & GitHub</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -664,37 +716,38 @@
                 <p>My professional journey and career milestones</p>
             </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h4>Senior Frontend Developer</h4>
-                        <span class="date"><i class="far fa-calendar"></i> 2021 - Present</span>
-                        <p>Tech Innovations Inc. - Lead development of enterprise web applications using React and TypeScript.</p>
-                        <ul style="padding-left: 20px; margin-top: 10px;">
-                            <li>Reduced load times by 40% through performance optimization</li>
-                            <li>Mentored junior developers and established coding standards</li>
+            <div class="case-study">
+                <div class="case-content">
+                    <div class="case-section">
+                        <h3>Senior Frontend Developer</h3>
+                        <p><strong>Tech Innovations Inc. | 2021 - Present</strong></p>
+                        <p>Lead development of enterprise web applications using React and TypeScript. Responsible for architecting frontend solutions, mentoring junior developers, and establishing coding standards across the organization.</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Reduced application load times by 40% through performance optimization techniques</li>
+                            <li>Implemented a component library used by 20+ developers across the organization</li>
+                            <li>Mentored 5 junior developers, improving team productivity by 25%</li>
                         </ul>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h4>Web Developer</h4>
-                        <span class="date"><i class="far fa-calendar"></i> 2019 - 2021</span>
-                        <p>Digital Solutions Co. - Developed responsive websites for clients across various industries.</p>
-                        <ul style="padding-left: 20px; margin-top: 10px;">
-                            <li>Implemented modern JavaScript frameworks</li>
-                            <li>Collaborated with designers to implement UI/UX designs</li>
+                    
+                    <div class="case-section">
+                        <h3>Web Developer</h3>
+                        <p><strong>Digital Solutions Co. | 2019 - 2021</strong></p>
+                        <p>Developed responsive websites for clients across various industries. Collaborated with designers to implement UI/UX designs and ensure cross-browser compatibility.</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Built 15+ client websites using modern JavaScript frameworks</li>
+                            <li>Improved website performance scores by an average of 35%</li>
+                            <li>Created reusable component libraries that reduced development time by 30%</li>
                         </ul>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h4>Junior Developer</h4>
-                        <span class="date"><i class="far fa-calendar"></i> 2018 - 2019</span>
-                        <p>StartUp Ventures - Contributed to the development of the company's main SaaS product.</p>
-                        <ul style="padding-left: 20px; margin-top: 10px;">
-                            <li>Built key features using Vue.js</li>
-                            <li>Participated in agile development processes</li>
+                    
+                    <div class="case-section">
+                        <h3>Junior Developer</h3>
+                        <p><strong>StartUp Ventures | 2018 - 2019</strong></p>
+                        <p>Contributed to the development of the company's SaaS product using Vue.js and Firebase. Fixed bugs and implemented new features based on user feedback.</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Developed key features that improved user retention by 20%</li>
+                            <li>Reduced bug reports by 40% through improved testing practices</li>
+                            <li>Participated in agile development processes and weekly sprints</li>
                         </ul>
                     </div>
                 </div>
@@ -710,7 +763,7 @@
             
             <div class="project-grid">
                 <div class="project-card">
-                    <div class="project-img">
+                    <div class="project-img" style="background: linear-gradient(45deg, #3498db, #2ecc71);">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="project-content">
@@ -720,13 +773,14 @@
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
                             <span class="tag">MongoDB</span>
+                            <span class="tag">Stripe API</span>
                         </div>
-                        <a href="#" class="btn btn-outline">View Case Study</a>
+                        <button class="btn btn-outline view-case-study" data-case="ecommerce">View Case Study</button>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-img">
+                    <div class="project-img" style="background: linear-gradient(45deg, #9b59b6, #e74c3c);">
                         <i class="fas fa-tasks"></i>
                     </div>
                     <div class="project-content">
@@ -737,12 +791,12 @@
                             <span class="tag">Firebase</span>
                             <span class="tag">Tailwind CSS</span>
                         </div>
-                        <a href="#" class="btn btn-outline">View Case Study</a>
+                        <button class="btn btn-outline view-case-study" data-case="taskapp">View Case Study</button>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-img">
+                    <div class="project-img" style="background: linear-gradient(45deg, #e67e22, #f1c40f);">
                         <i class="fas fa-weather-sun"></i>
                     </div>
                     <div class="project-content">
@@ -753,12 +807,157 @@
                             <span class="tag">API Integration</span>
                             <span class="tag">CSS Animations</span>
                         </div>
-                        <a href="#" class="btn btn-outline">View Case Study</a>
+                        <button class="btn btn-outline view-case-study" data-case="weather">View Case Study</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Case Study Pages -->
+        <!-- E-commerce Case Study -->
+        <div id="ecommerce" class="page">
+            <div class="case-study">
+                <div class="case-header">
+                    <h2>E-Commerce Platform</h2>
+                    <p>A modern e-commerce solution with seamless shopping experience</p>
+                    <div class="case-meta">
+                        <div class="meta-item"><i class="fas fa-calendar"></i> Jan 2023 - Present</div>
+                        <div class="meta-item"><i class="fas fa-user"></i> Client: FashionHub</div>
+                        <div class="meta-item"><i class="fas fa-tags"></i> React, Node.js, MongoDB</div>
+                    </div>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-section">
+                        <h3>Project Overview</h3>
+                        <p>FashionHub needed a modern e-commerce platform to replace their outdated system. The goal was to create a responsive, high-performance shopping experience that could handle high traffic volumes, especially during sales events.</p>
+                        <p>The platform needed to support thousands of products, multiple payment options, user accounts, and a robust admin dashboard for inventory management.</p>
+                    </div>
+                    
+                    <div class="case-section">
+                        <h3>Challenges</h3>
+                        <p>The main challenges included creating a scalable architecture, ensuring fast load times with large product catalogs, and implementing a secure payment system. The client also needed the platform to be easily maintainable by their internal team.</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Handling 50,000+ concurrent users during peak sales</li>
+                            <li>Reducing page load time for product listings</li>
+                            <li>Creating an intuitive admin interface</li>
+                            <li>Implementing multiple payment gateways</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-section">
+                        <h3>Solution</h3>
+                        <p>We developed a custom e-commerce platform using React for the frontend and Node.js with Express for the backend. MongoDB was chosen for its flexibility with product data. Key features included:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Server-side rendering for initial page loads</li>
+                            <li>Redis caching for product listings and API responses</li>
+                            <li>Stripe and PayPal payment integrations</li>
+                            <li>Custom recommendation engine based on user behavior</li>
+                            <li>Comprehensive admin dashboard with analytics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-section">
+                        <h3>Project Gallery</h3>
+                        <div class="gallery">
+                            <div class="gallery-grid">
+                                <div class="gallery-item" data-index="0">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="gallery-item" data-index="1">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="gallery-item" data-index="2">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="gallery-item" data-index="3">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="gallery-item" data-index="4">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="gallery-item" data-index="5">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-section">
+                        <h3>Results</h3>
+                        <p>The new platform successfully launched during the holiday season and handled Black Friday traffic with over 50,000 concurrent users. Key results included:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>40% reduction in page load times</li>
+                            <li>22% increase in conversion rates</li>
+                            <li>15% decrease in cart abandonment</li>
+                            <li>99.9% uptime during peak traffic</li>
+                        </ul>
+                        <p>The client reported a 35% increase in revenue during the first quarter after launch.</p>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <button class="btn back-to-projects"><i class="fas fa-arrow-left"></i> Back to Projects</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Task App Case Study -->
+        <div id="taskapp" class="page">
+            <div class="case-study">
+                <div class="case-header">
+                    <h2>Task Management Application</h2>
+                    <p>A productivity app for teams to collaborate in real-time</p>
+                    <div class="case-meta">
+                        <div class="meta-item"><i class="fas fa-calendar"></i> Aug 2022 - Dec 2022</div>
+                        <div class="meta-item"><i class="fas fa-user"></i> Client: TechStart Inc.</div>
+                        <div class="fas fa-tags"></i> Vue.js, Firebase, Tailwind CSS</div>
+                    </div>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-section">
+                        <h3>Project Overview</h3>
+                        <p>TechStart needed a custom task management solution for their remote teams. The application needed to support project organization, task assignment, real-time collaboration, and progress tracking.</p>
+                    </div>
+                    
+                    <div class="case-section">
+                        <h3>Gallery</h3>
+                        <div class="gallery">
+                            <div class="gallery-grid">
+                                <div class="gallery-item" data-index="0">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="gallery-item" data-index="1">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="gallery-item" data-index="2">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="gallery-item" data-index="3">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <button class="btn back-to-projects"><i class="fas fa-arrow-left"></i> Back to Projects</button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+        <span class="close-modal">&times;</span>
+        <div class="gallery-nav prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="gallery-nav next"><i class="fas fa-chevron-right"></i></div>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Gallery Image">
+        </div>
+    </div>
     
     <!-- Footer -->
     <footer>
@@ -784,32 +983,56 @@
             const mobileNavBtn = document.getElementById('mobileNavBtn');
             const mobileNav = document.getElementById('mobileNav');
             const closeNav = document.getElementById('closeNav');
+            const caseStudyBtns = document.querySelectorAll('.view-case-study');
+            const backToProjectsBtns = document.querySelectorAll('.back-to-projects');
+            
+            // Function to show a specific page
+            function showPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => page.classList.remove('active'));
+                
+                // Show the target page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update active class on navigation
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                
+                // Activate the projects link for case studies
+                if (pageId === 'ecommerce' || pageId === 'taskapp' || pageId === 'weather') {
+                    document.querySelector('.nav-link[data-page="projects"]').classList.add('active');
+                } else {
+                    // Activate the corresponding nav link
+                    document.querySelector(`.nav-link[data-page="${pageId}"]`).classList.add('active');
+                }
+                
+                // Update URL without reloading
+                history.pushState(null, null, `#${pageId}`);
+                
+                // Close mobile menu if open
+                mobileNav.classList.remove('active');
+            }
             
             // Handle navigation clicks
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    // Get target page from data attribute
                     const targetPage = this.getAttribute('data-page');
-                    
-                    // Update active class on navigation
-                    navLinks.forEach(navLink => navLink.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Show target page
-                    pages.forEach(page => {
-                        page.classList.remove('active');
-                        if (page.id === targetPage) {
-                            page.classList.add('active');
-                        }
-                    });
-                    
-                    // Close mobile menu if open
-                    mobileNav.classList.remove('active');
-                    
-                    // Update URL without reloading
-                    history.pushState(null, null, `#${targetPage}`);
+                    showPage(targetPage);
+                });
+            });
+            
+            // Handle case study buttons
+            caseStudyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const caseId = this.getAttribute('data-case');
+                    showPage(caseId);
+                });
+            });
+            
+            // Handle back to projects buttons
+            backToProjectsBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    showPage('projects');
                 });
             });
             
@@ -826,32 +1049,82 @@
             // Handle back/forward navigation
             window.addEventListener('popstate', function() {
                 const hash = window.location.hash.substring(1) || 'home';
-                
-                // Update active class on navigation
-                navLinks.forEach(navLink => {
-                    navLink.classList.remove('active');
-                    if (navLink.getAttribute('data-page') === hash) {
-                        navLink.classList.add('active');
-                    }
-                });
-                
-                // Show target page
-                pages.forEach(page => {
-                    page.classList.remove('active');
-                    if (page.id === hash) {
-                        page.classList.add('active');
-                    }
-                });
+                showPage(hash);
             });
             
             // Check for initial hash
             const initialHash = window.location.hash.substring(1);
             if (initialHash) {
-                // Find the corresponding nav link and click it
-                const initialLink = document.querySelector(`.nav-link[data-page="${initialHash}"]`);
-                if (initialLink) {
-                    initialLink.click();
+                showPage(initialHash);
+            }
+            
+            // Gallery functionality
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const galleryModal = document.getElementById('galleryModal');
+            const modalImage = document.getElementById('modalImage');
+            const closeModal = document.querySelector('.close-modal');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            
+            let currentGallery = null;
+            let currentIndex = 0;
+            
+            // Open gallery modal
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    currentGallery = this.closest('.gallery');
+                    currentIndex = parseInt(this.getAttribute('data-index'));
+                    updateModalImage();
+                    galleryModal.style.display = 'flex';
+                });
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                galleryModal.style.display = 'none';
+            });
+            
+            // Click outside image to close
+            galleryModal.addEventListener('click', function(e) {
+                if (e.target === galleryModal) {
+                    galleryModal.style.display = 'none';
                 }
+            });
+            
+            // Navigation between images
+            prevBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                updateModalImage();
+            });
+            
+            nextBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentIndex = (currentIndex + 1) % galleryItems.length;
+                updateModalImage();
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (galleryModal.style.display === 'flex') {
+                    if (e.key === 'ArrowLeft') {
+                        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                        updateModalImage();
+                    } else if (e.key === 'ArrowRight') {
+                        currentIndex = (currentIndex + 1) % galleryItems.length;
+                        updateModalImage();
+                    } else if (e.key === 'Escape') {
+                        galleryModal.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update modal image
+            function updateModalImage() {
+                // In a real implementation, this would show actual images
+                // For this demo, we'll just show a placeholder
+                modalImage.src = '';
+                modalImage.alt = `Gallery Image ${currentIndex + 1}`;
             }
         });
     </script>
