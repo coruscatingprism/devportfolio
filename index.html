@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio SPA</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: #3498db;
+        }
+        
+        /* Main content container */
+        #content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        /* Page styling */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .page-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+        }
+        
+        .page-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: #ecf0f1;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+            <li><a href="#" class="nav-link" data-page="about">About</a></li>
+            <li><a href="#" class="nav-link" data-page="experience">Experience</a></li>
+            <li><a href="#" class="nav-link" data-page="projects">Projects</a></li>
+        </ul>
+    </nav>
+    
+    <main id="content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="page-content">
+                <h1 class="page-header">Welcome to My Portfolio</h1>
+                <p>Hello! I'm a passionate developer/designer with expertise in creating modern web applications.</p>
+                
+                <div class="card">
+                    <h2>What You'll Find Here</h2>
+                    <p>This single-page application showcases my skills, experience, and projects:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Learn more about me in the <strong>About</strong> section</li>
+                        <li>See my professional journey in the <strong>Experience</strong> page</li>
+                        <li>Explore my work in the <strong>Projects</strong> section</li>
+                    </ul>
+                </div>
+                
+                <p>Feel free to navigate using the menu above to learn more about my work and background.</p>
+            </div>
+        </div>
+        
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="page-content">
+                <h1 class="page-header">About Me</h1>
+                
+                <div class="card">
+                    <h2>Background</h2>
+                    <p>I'm a passionate developer with over 5 years of experience in creating web applications. My journey began when I was 15 years old, tinkering with HTML and CSS to create websites for fun.</p>
+                </div>
+                
+                <div class="card">
+                    <h2>Education</h2>
+                    <p>Bachelor of Science in Computer Science from Tech University (2015-2019). During my studies, I specialized in web technologies and user experience design.</p>
+                </div>
+                
+                <div class="card">
+                    <h2>Skills</h2>
+                    <ul style="margin-left: 20px;">
+                        <li>Frontend: HTML5, CSS3, JavaScript (ES6+), React, Vue.js</li>
+                        <li>Backend: Node.js, Express, Python, Django</li>
+                        <li>Databases: MongoDB, PostgreSQL, Firebase</li>
+                        <li>Tools: Git, Webpack, Docker, AWS</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h2>Philosophy</h2>
+                    <p>I believe in creating clean, efficient code that solves real problems. User experience is at the heart of everything I build, and I strive to create applications that are both functional and delightful to use.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Experience Page -->
+        <div id="experience" class="page">
+            <div class="page-content">
+                <h1 class="page-header">Professional Experience</h1>
+                
+                <div class="card">
+                    <h2>Senior Frontend Developer</h2>
+                    <h3>Tech Innovations Inc. | 2021 - Present</h3>
+                    <p>Lead development of multiple web applications using React and TypeScript. Mentored junior developers and implemented CI/CD pipelines that reduced deployment time by 40%.</p>
+                </div>
+                
+                <div class="card">
+                    <h2>Web Developer</h2>
+                    <h3>Digital Solutions Co. | 2019 - 2021</h3>
+                    <p>Developed and maintained client websites using modern JavaScript frameworks. Collaborated with designers to implement responsive UI components.</p>
+                </div>
+                
+                <div class="card">
+                    <h2>Junior Developer</h2>
+                    <h3>StartUp Ventures | 2018 - 2019</h3>
+                    <p>Assisted in building the company's main product using Vue.js and Firebase. Fixed bugs and implemented new features based on user feedback.</p>
+                </div>
+                
+                <div class="card">
+                    <h2>Intern</h2>
+                    <h3>Web Design Agency | Summer 2017</h3>
+                    <p>Created HTML email templates, assisted in website redesign projects, and learned industry best practices.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Projects Page -->
+        <div id="projects" class="page">
+            <div class="page-content">
+                <h1 class="page-header">Projects & Case Studies</h1>
+                <p>Here are some of my recent projects. Each case study demonstrates my approach to problem-solving and technical implementation.</p>
+                
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">E-Commerce Platform</h3>
+                            <p>A full-featured online store built with React, Node.js, and MongoDB. Features include product search, cart management, and payment processing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Task Management App</h3>
+                            <p>A productivity application that helps teams organize projects. Built with Vue.js and Firebase for real-time collaboration.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Weather Dashboard</h3>
+                            <p>A responsive weather application that shows forecasts using data from a third-party API. Built with pure JavaScript.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Portfolio Website</h3>
+                            <p>A modern portfolio site for a freelance designer. Features custom animations and a clean, minimalist design.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Recipe Finder</h3>
+                            <p>An application that helps users discover recipes based on ingredients they have. Built with React and the Spoonacular API.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Fitness Tracker</h3>
+                            <p>A mobile-responsive application for tracking workouts and progress. Features data visualization and goal setting.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 2rem;">
+                    <h2>Case Study: E-Commerce Platform</h2>
+                    <p>This project involved creating a scalable e-commerce solution for a client in the fashion industry. The challenge was to handle high traffic during sales events while maintaining a smooth user experience.</p>
+                    <h3>Solution</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Implemented server-side rendering for better SEO and performance</li>
+                        <li>Used Redis for caching product listings</li>
+                        <li>Developed a custom recommendation engine based on user behavior</li>
+                        <li>Integrated with Stripe for secure payments</li>
+                    </ul>
+                    <h3>Results</h3>
+                    <p>The platform successfully handled Black Friday traffic with over 50,000 concurrent users. Conversion rates increased by 22% compared to the previous solution.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2023 My Portfolio | Built as a Single Page Application</p>
+    </footer>
+    
+    <script>
+        // SPA Navigation Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get target page from data attribute
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Update active class on navigation
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show target page
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                        if (page.id === targetPage) {
+                            page.classList.add('active');
+                        }
+                    });
+                    
+                    // Update URL without reloading
+                    history.pushState(null, null, `#${targetPage}`);
+                });
+            });
+            
+            // Handle back/forward navigation
+            window.addEventListener('popstate', function() {
+                const hash = window.location.hash.substring(1) || 'home';
+                
+                // Update active class on navigation
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('active');
+                    if (navLink.getAttribute('data-page') === hash) {
+                        navLink.classList.add('active');
+                    }
+                });
+                
+                // Show target page
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                    if (page.id === hash) {
+                        page.classList.add('active');
+                    }
+                });
+            });
+            
+            // Check for initial hash
+            const initialHash = window.location.hash.substring(1);
+            if (initialHash) {
+                // Find the corresponding nav link and click it
+                const initialLink = document.querySelector(`.nav-link[data-page="${initialHash}"]`);
+                if (initialLink) {
+                    initialLink.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
