@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio SPA with Case Studies</title>
+    <title>Portfolio SPA with Enhanced Dark Mode</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">    
-
 </head>
 <body>
     <!-- Header with Navigation -->
     <header>
-        <div class="logo">
-            <i class="fas fa-code"></i>
-            <span>DevPortfolio</span>
-        </div>
         
         <!-- Desktop Navigation -->
         <nav class="desktop-nav">
@@ -22,6 +17,16 @@
             <a href="#" class="nav-link" data-page="about"><i class="fas fa-user"></i> About</a>
             <a href="#" class="nav-link" data-page="experience"><i class="fas fa-briefcase"></i> Experience</a>
             <a href="#" class="nav-link" data-page="projects"><i class="fas fa-project-diagram"></i> Projects</a>
+            
+            <!-- Enhanced Theme Toggle -->
+            <div class="theme-toggle" id="themeToggle">
+                <div class="toggle-container">
+                    <div class="toggle-circle">
+                        <i class="fas fa-sun toggle-icon sun-icon"></i>
+                        <i class="fas fa-moon toggle-icon moon-icon"></i>
+                    </div>
+                </div>
+            </div>
         </nav>
         
         <!-- Mobile Navigation Button -->
@@ -38,6 +43,16 @@
             <a href="#" class="nav-link" data-page="about"><i class="fas fa-user"></i> About</a>
             <a href="#" class="nav-link" data-page="experience"><i class="fas fa-briefcase"></i> Experience</a>
             <a href="#" class="nav-link" data-page="projects"><i class="fas fa-project-diagram"></i> Projects</a>
+
+            <!-- Mobile Theme Toggle -->
+            <div class="mobile-theme-toggle" id="mobileThemeToggle">
+                <div class="toggle-container">
+                    <div class="toggle-circle">
+                        <i class="fas fa-sun toggle-icon sun-icon"></i>
+                        <i class="fas fa-moon toggle-icon moon-icon"></i>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
     
@@ -45,21 +60,20 @@
     <main id="content">
         <!-- Home Page -->
         <div id="home" class="page active">
-            <div class="page-header">
+            <!-- <div class="page-header">
                 <h1>Welcome to My Portfolio</h1>
                 <p>Creative Developer & UI/UX Designer with a passion for building amazing web experiences</p>
-            </div>
+            </div> -->
             
-            <div class="hero">
-                <h2>Turning Ideas Into Digital Reality</h2>
-                <p>I'm a passionate developer specializing in creating modern, responsive web applications with clean code and exceptional user experiences. With over 5 years of experience, I've helped companies transform their digital presence.</p>
-                <div>
-                    <a href="#" class="btn" data-page="projects">View My Work</a>
-                    <a href="#" class="btn btn-outline" data-page="about">About Me</a>
+            <div class="centralDiv">
+                <div class="homeGrid">
+                    <p class="homeBanner">a</p>
+                    <h2 class="homeTitle">Arianne Mae Gallardo</h2>
+                    <p class="homeDescription">I'm a passionate developer specializing in creating modern, responsive web applications with clean code and exceptional user experiences. With over 5 years of experience, I've helped companies transform their digital presence.</p>
                 </div>
             </div>
             
-            <div class="card-grid">
+            <!-- <div class="card-grid">
                 <div class="card">
                     <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
                     <p>Building responsive, accessible websites and applications using modern technologies like HTML5, CSS3, JavaScript, and React.</p>
@@ -72,15 +86,15 @@
                     <h3><i class="fas fa-bolt"></i> Performance</h3>
                     <p>Optimizing websites for speed and efficiency to provide the best possible user experience.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
         
         <!-- About Page -->
         <div id="about" class="page">
-            <div class="page-header">
+            <!-- <div class="page-header">
                 <h1>About Me</h1>
                 <p>Get to know my background, skills, and what drives me as a developer</p>
-            </div>
+            </div> -->
             
             <div class="case-study">
                 <div class="case-content">
@@ -111,10 +125,10 @@
         
         <!-- Experience Page -->
         <div id="experience" class="page">
-            <div class="page-header">
+            <!-- <div class="page-header">
                 <h1>Work Experience</h1>
                 <p>My professional journey and career milestones</p>
-            </div>
+            </div> -->
             
             <div class="case-study">
                 <div class="case-content">
@@ -156,14 +170,14 @@
         
         <!-- Projects Page -->
         <div id="projects" class="page">
-            <div class="page-header">
+            <!-- <div class="page-header">
                 <h1>Projects & Case Studies</h1>
                 <p>Explore my recent work and professional projects</p>
-            </div>
+            </div> -->
             
             <div class="project-grid">
                 <div class="project-card">
-                    <div class="project-img" style="background: linear-gradient(45deg, #3498db, #2ecc71);">
+                    <div class="project-img">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="project-content">
@@ -173,14 +187,13 @@
                             <span class="tag">React</span>
                             <span class="tag">Node.js</span>
                             <span class="tag">MongoDB</span>
-                            <span class="tag">Stripe API</span>
                         </div>
                         <button class="btn btn-outline view-case-study" data-case="ecommerce">View Case Study</button>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-img" style="background: linear-gradient(45deg, #9b59b6, #e74c3c);">
+                    <div class="project-img">
                         <i class="fas fa-tasks"></i>
                     </div>
                     <div class="project-content">
@@ -196,7 +209,7 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-img" style="background: linear-gradient(45deg, #e67e22, #f1c40f);">
+                    <div class="project-img">
                         <i class="fas fa-weather-sun"></i>
                     </div>
                     <div class="project-content">
@@ -235,30 +248,7 @@
                     </div>
                     
                     <div class="case-section">
-                        <h3>Challenges</h3>
-                        <p>The main challenges included creating a scalable architecture, ensuring fast load times with large product catalogs, and implementing a secure payment system. The client also needed the platform to be easily maintainable by their internal team.</p>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Handling 50,000+ concurrent users during peak sales</li>
-                            <li>Reducing page load time for product listings</li>
-                            <li>Creating an intuitive admin interface</li>
-                            <li>Implementing multiple payment gateways</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="case-section">
-                        <h3>Solution</h3>
-                        <p>We developed a custom e-commerce platform using React for the frontend and Node.js with Express for the backend. MongoDB was chosen for its flexibility with product data. Key features included:</p>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Server-side rendering for initial page loads</li>
-                            <li>Redis caching for product listings and API responses</li>
-                            <li>Stripe and PayPal payment integrations</li>
-                            <li>Custom recommendation engine based on user behavior</li>
-                            <li>Comprehensive admin dashboard with analytics</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="case-section">
-                        <h3>Project Gallery</h3>
+                        <h3>Gallery</h3>
                         <div class="gallery">
                             <div class="gallery-grid">
                                 <div class="gallery-item" data-index="0">
@@ -273,26 +263,8 @@
                                 <div class="gallery-item" data-index="3">
                                     <i class="fas fa-image"></i>
                                 </div>
-                                <div class="gallery-item" data-index="4">
-                                    <i class="fas fa-image"></i>
-                                </div>
-                                <div class="gallery-item" data-index="5">
-                                    <i class="fas fa-image"></i>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="case-section">
-                        <h3>Results</h3>
-                        <p>The new platform successfully launched during the holiday season and handled Black Friday traffic with over 50,000 concurrent users. Key results included:</p>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>40% reduction in page load times</li>
-                            <li>22% increase in conversion rates</li>
-                            <li>15% decrease in cart abandonment</li>
-                            <li>99.9% uptime during peak traffic</li>
-                        </ul>
-                        <p>The client reported a 35% increase in revenue during the first quarter after launch.</p>
                     </div>
                     
                     <div style="text-align: center; margin-top: 3rem;">
@@ -301,24 +273,24 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Task App Case Study -->
+
         <div id="taskapp" class="page">
             <div class="case-study">
                 <div class="case-header">
-                    <h2>Task Management Application</h2>
-                    <p>A productivity app for teams to collaborate in real-time</p>
+                    <h2>sss</h2>
+                    <p>A modern e-commerce solution with seamless shopping experience</p>
                     <div class="case-meta">
-                        <div class="meta-item"><i class="fas fa-calendar"></i> Aug 2022 - Dec 2022</div>
-                        <div class="meta-item"><i class="fas fa-user"></i> Client: TechStart Inc.</div>
-                        <div class="fas fa-tags"></i> Vue.js, Firebase, Tailwind CSS</div>
+                        <div class="meta-item"><i class="fas fa-calendar"></i> Jan 2023 - Present</div>
+                        <div class="meta-item"><i class="fas fa-user"></i> Client: FashionHub</div>
+                        <div class="meta-item"><i class="fas fa-tags"></i> React, Node.js, MongoDB</div>
                     </div>
                 </div>
                 
                 <div class="case-content">
                     <div class="case-section">
                         <h3>Project Overview</h3>
-                        <p>TechStart needed a custom task management solution for their remote teams. The application needed to support project organization, task assignment, real-time collaboration, and progress tracking.</p>
+                        <p>FashionHub needed a modern e-commerce platform to replace their outdated system. The goal was to create a responsive, high-performance shopping experience that could handle high traffic volumes, especially during sales events.</p>
+                        <p>The platform needed to support thousands of products, multiple payment options, user accounts, and a robust admin dashboard for inventory management.</p>
                     </div>
                     
                     <div class="case-section">
@@ -347,36 +319,92 @@
                 </div>
             </div>
         </div>
+
     </main>
-    
-    <!-- Gallery Modal -->
-    <div class="gallery-modal" id="galleryModal">
-        <span class="close-modal">&times;</span>
-        <div class="gallery-nav prev"><i class="fas fa-chevron-left"></i></div>
-        <div class="gallery-nav next"><i class="fas fa-chevron-right"></i></div>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="Gallery Image">
-        </div>
-    </div>
     
     <!-- Footer -->
     <footer>
-        <h3>Let's Connect</h3>
-        <p>Feel free to reach out for collaborations or just a friendly hello</p>
-        
-        <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
-        </div>
-        
-        <p>&copy; 2023 DevPortfolio. All rights reserved.</p>
+        <p>&copy; 2025. All rights reserved.</p>
     </footer>
     
     <script>
+        // Dark/Light Mode Functionality
+        function initTheme() {
+            // Check localStorage for theme preference
+            const savedTheme = localStorage.getItem('theme');
+            
+            // Check system preference
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Determine initial theme
+            const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            
+            // Apply theme
+            applyTheme(initialTheme);
+            
+            // Add event listeners to theme toggles
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
+        }
+        
+        function applyTheme(theme) {
+            // Set theme class on body
+            document.body.className = theme;
+            
+            // Set CSS variables based on theme
+            if (theme === 'dark') {
+                document.documentElement.style.setProperty('--h2-color-light', 'var(--h2-color-dark)');                
+                document.documentElement.style.setProperty('--bg-blendmode-light', 'var(--bg-blendmode-dark)');
+                document.documentElement.style.setProperty('--light-bg-img', 'var(--dark-bg-img)');
+                document.documentElement.style.setProperty('--bg', 'var(--dark-bg)');
+                document.documentElement.style.setProperty('--text', 'var(--dark-text)');
+                document.documentElement.style.setProperty('--card-bg', 'var(--dark-card-bg)');
+                document.documentElement.style.setProperty('--card-shadow', 'var(--dark-card-shadow)');
+                document.documentElement.style.setProperty('--header-bg', 'var(--dark-header-bg)');
+                document.documentElement.style.setProperty('--nav-hover', 'var(--dark-nav-hover)');
+                document.documentElement.style.setProperty('--primary', 'var(--dark-primary)');
+                document.documentElement.style.setProperty('--secondary', 'var(--dark-secondary)');
+                document.documentElement.style.setProperty('--accent', 'var(--dark-accent)');
+                document.documentElement.style.setProperty('--border', 'var(--dark-border)');
+            } else {
+                document.documentElement.style.setProperty('--h2-color-dark', 'var(--h2-color-light)');                   
+                document.documentElement.style.setProperty('--bg-blendmode-dark', 'var(--bg-blendmode-light)');
+                document.documentElement.style.setProperty('--dark-bg-img', 'var(--light-bg-img)');
+                document.documentElement.style.setProperty('--bg', 'var(--light-bg)');
+                document.documentElement.style.setProperty('--text', 'var(--light-text)');
+                document.documentElement.style.setProperty('--card-bg', 'var(--light-card-bg)');
+                document.documentElement.style.setProperty('--card-shadow', 'var(--light-card-shadow)');
+                document.documentElement.style.setProperty('--header-bg', 'var(--light-header-bg)');
+                document.documentElement.style.setProperty('--nav-hover', 'var(--light-nav-hover)');
+                document.documentElement.style.setProperty('--primary', 'var(--light-primary)');
+                document.documentElement.style.setProperty('--secondary', 'var(--light-secondary)');
+                document.documentElement.style.setProperty('--accent', 'var(--light-accent)');
+                document.documentElement.style.setProperty('--border', 'var(--light-border)');
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('theme', theme);
+            
+            // Add animation to toggle button
+            const toggleCircle = document.querySelector('.toggle-circle');
+            toggleCircle.style.animation = 'pulse 0.5s ease';
+            setTimeout(() => {
+                toggleCircle.style.animation = '';
+            }, 500);
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+            location.reload();
+        }
+        
         // SPA Navigation Logic
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            initTheme();
+            
             // Get all navigation links
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page');
@@ -405,11 +433,16 @@
                     document.querySelector(`.nav-link[data-page="${pageId}"]`).classList.add('active');
                 }
                 
+
+                
                 // Update URL without reloading
                 history.pushState(null, null, `#${pageId}`);
                 
                 // Close mobile menu if open
                 mobileNav.classList.remove('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
             }
             
             // Handle navigation clicks
@@ -456,75 +489,6 @@
             const initialHash = window.location.hash.substring(1);
             if (initialHash) {
                 showPage(initialHash);
-            }
-            
-            // Gallery functionality
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const galleryModal = document.getElementById('galleryModal');
-            const modalImage = document.getElementById('modalImage');
-            const closeModal = document.querySelector('.close-modal');
-            const prevBtn = document.querySelector('.prev');
-            const nextBtn = document.querySelector('.next');
-            
-            let currentGallery = null;
-            let currentIndex = 0;
-            
-            // Open gallery modal
-            galleryItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    currentGallery = this.closest('.gallery');
-                    currentIndex = parseInt(this.getAttribute('data-index'));
-                    updateModalImage();
-                    galleryModal.style.display = 'flex';
-                });
-            });
-            
-            // Close modal
-            closeModal.addEventListener('click', function() {
-                galleryModal.style.display = 'none';
-            });
-            
-            // Click outside image to close
-            galleryModal.addEventListener('click', function(e) {
-                if (e.target === galleryModal) {
-                    galleryModal.style.display = 'none';
-                }
-            });
-            
-            // Navigation between images
-            prevBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-                updateModalImage();
-            });
-            
-            nextBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                currentIndex = (currentIndex + 1) % galleryItems.length;
-                updateModalImage();
-            });
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                if (galleryModal.style.display === 'flex') {
-                    if (e.key === 'ArrowLeft') {
-                        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-                        updateModalImage();
-                    } else if (e.key === 'ArrowRight') {
-                        currentIndex = (currentIndex + 1) % galleryItems.length;
-                        updateModalImage();
-                    } else if (e.key === 'Escape') {
-                        galleryModal.style.display = 'none';
-                    }
-                }
-            });
-            
-            // Update modal image
-            function updateModalImage() {
-                // In a real implementation, this would show actual images
-                // For this demo, we'll just show a placeholder
-                modalImage.src = '';
-                modalImage.alt = `Gallery Image ${currentIndex + 1}`;
             }
         });
     </script>
